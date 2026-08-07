@@ -1,0 +1,21 @@
+services:
+
+  leadspedia-data-provider:
+    image: ${INMOBILIARIA}
+    volumes:
+      - ./etc:/app/etc
+      - ${APPS_WORKSPACE}/inmobiliaria:/app/data
+    environment:
+      #this is the path inside the container
+      - CONFIG_FILE_PATH=/app/etc/config.json
+    ports:
+      - 3000:3000
+      - 4201:4201  
+    restart: always
+    networks:
+      - backend-network
+
+
+networks:
+  backend-network:
+    external: true
