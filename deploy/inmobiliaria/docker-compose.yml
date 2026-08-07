@@ -1,6 +1,6 @@
 services:
 
-  leadspedia-data-provider:
+  inmobiliaria:
     image: ${INMOBILIARIA}
     volumes:
       - ./etc:/app/etc
