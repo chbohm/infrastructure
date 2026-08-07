@@ -9,7 +9,7 @@ services:
       #this is the path inside the container
       - CONFIG_FILE_PATH=/app/etc/config.json
     ports:
-      - 3000:3000
+      - 5000:3000
       - 4201:4201  
     restart: always
     networks:
