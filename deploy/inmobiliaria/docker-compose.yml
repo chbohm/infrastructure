@@ -3,7 +3,7 @@ services:
   inmobiliaria:
     image: ${INMOBILIARIA}
     volumes:
-      - ./etc:/app/etc
+      - ./etc/inmobiliaria:/app/etc
       - ${APPS_WORKSPACE}/inmobiliaria:/app/data
     environment:
       #this is the path inside the container
