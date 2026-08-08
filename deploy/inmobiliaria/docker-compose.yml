@@ -10,7 +10,7 @@ services:
       - CONFIG_FILE_PATH=/app/etc/config.json
     ports:
       - 5000:3000
-      - 4201:4201  
+      - 4200:4200  
     restart: always
     networks:
       - backend-network
