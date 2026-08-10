@@ -1,0 +1,20 @@
+services:
+
+  registry:
+    image: registry:2
+    container_name: registry
+    ports:
+      - "5000:5000"
+    volumes:
+      - ~/dev-cbohm/registry-data:/var/lib/registry
+    environment:
+      REGISTRY_STORAGE_DELETE_ENABLED: "true"
+      REGISTRY_HTTP_ADDR: "0.0.0.0:5000"
+      REGISTRY_HTTP_HEADERS_ACCESS_CONTROL_ALLOW_ORIGIN: "['*']"
+    restart: unless-stopped
+
+
+
+networks:
+  backend-network:
+    external: true
