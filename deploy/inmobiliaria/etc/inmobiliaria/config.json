@@ -2,7 +2,7 @@
     "env": "production",
     "debug": true,
     "port": 3000,
-    "dataDir": "./data",
+    "dataDir": "/data",
     "jwt": {
         "accessSecret": "dev-access-secret",
         "refreshSecret": "dev-refresh-secret",
