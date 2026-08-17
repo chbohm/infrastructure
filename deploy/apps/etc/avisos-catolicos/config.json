@@ -1,0 +1,12 @@
+ {
+    "env": "production",
+    "debug": false,
+    "port": 8006,
+    "dataDir": "/app/data",
+    "jwt": {
+        "accessSecret": "qa-access-secret2",
+        "refreshSecret": "qa-refresh-secret",
+        "accessTokenTtl": "15m",
+        "refreshTokenTtl": "30d"
+    }
+}

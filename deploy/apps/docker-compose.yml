@@ -15,6 +15,21 @@ services:
     networks:
       - backend-network
 
+  avisos-catolicos:
+    image: ${AVISOS_CATOLICOS}
+    volumes:
+      - ./etc/avisos-catolicos:/app/etc
+      - ${APPS_WORKSPACE}/avisos-catolicos:/app/data
+    environment:
+      #this is the path inside the container
+      - CONFIG_FILE_PATH=/app/etc/config.json
+    ports:
+      - 127.0.0.1:8006:8006
+      - 127.0.0.1:4201:4201
+    restart: always
+    networks:
+      - backend-network
+
 networks:
   backend-network:
     external: true
