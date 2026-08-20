@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+
+  gateway:
+    image: ${GATEWAY}
+    volumes:
+      - ${APPS_WORKSPACE}/gateway/nginx/conf.d:/etc/nginx/conf.d
+      - ${APPS_WORKSPACE}/gateway/nginx/sites:/app/sites
+      - ${APPS_WORKSPACE}/gateway/nginx/log:/var/log/nginx
+      - ${APPS_WORKSPACE}/gateway/certbot/letsencrypt:/etc/letsencrypt
+      - ${APPS_WORKSPACE}/gateway/certbot/www:/var/www/certbot
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    networks:
+      - backend-network
+  
+networks:
+  backend-network:
+    external: true

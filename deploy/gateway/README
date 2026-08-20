@@ -1,0 +1,33 @@
+1- Create dns entries for 
+   - qa.liftcl.com
+
+   
+2- Create configuration directories
+     mkdir -p /app/gateway/gateway/nginx/conf.d/
+     mkdir -p /app/gateway/gateway/nginx/sites/new
+     mkdir -p /app/gateway/gateway/var
+
+3- Copy all first_time_conf files into conf.d. This will configure nginx to respond to the correct domain names in order to let cerbot create certificates
+    
+
+   cp ./gateway/nginx/sites/new/first_time_conf/*.conf /app/gateway/gateway/nginx/conf.d
+
+2- Run gateway
+   docker-compose up -d
+3- Use certbot in order to create certificate for each domain
+docker exec -it gateway-gateway-1 certbot certonly --webroot -w /var/www/certbot -d  qa.liftcl.com
+
+
+For for each site it will create certificate files. Please read carefullly the logs and edit the conf files in conf.d so that they point correctly to the certificate files
+
+4-Copy all final_conf files into conf.d. This will configure nginx to respond to the correct services
+cp ./gateway/nginx/sites/new/final_conf/*.conf /app/gateway/gateway/nginx/conf.d
+
+4- Make nginx inside gateway refresh the conf files
+docker exec -it gateway-gateway-1 nginx -s reload
+
+
+If you dont have ssh certificate run: 
+
+
+5- in conf/aws-develop/gateway/local run   docker-compose -p gateway up -d
