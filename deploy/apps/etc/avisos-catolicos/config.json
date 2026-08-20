@@ -8,5 +8,8 @@
         "refreshSecret": "qa-refresh-secret",
         "accessTokenTtl": "15m",
         "refreshTokenTtl": "30d"
+    },
+    "avisos": {
+        "maxHorariosPorAviso": 10
     }
 }
