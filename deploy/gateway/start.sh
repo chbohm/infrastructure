@@ -5,10 +5,11 @@ set -a
 set +a
 
 
-mkdir -p ~/dev-cbohm/apps_workspace/gateway
+mkdir -p ${APPS_WORKSPACE}/gateway
+cp -R ./nginx ${APPS_WORKSPACE}/gateway
 echo "Starting core components ..."
 
-docker compose -p infra up -d gateway
+docker compose -p gateway up -d gateway
 
 echo "Start up complete."
 
