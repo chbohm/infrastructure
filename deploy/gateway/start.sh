@@ -5,8 +5,8 @@ set -a
 set +a
 
 
-mkdir -p ${APPS_WORKSPACE}/gateway
-cp -R ./nginx ${APPS_WORKSPACE}/gateway
+mkdir -p "${APPS_WORKSPACE}/gateway/nginx"
+cp -a ./nginx/. "${APPS_WORKSPACE}/gateway/nginx/"
 echo "Starting core components ..."
 
 docker compose -p gateway up -d gateway
